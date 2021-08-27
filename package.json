@@ -1,5 +1,5 @@
 {
-  "name": "fsw12ch5dedenurrahman",
+  "name": "ch6dede",
   "version": "1.0.0",
   "description": "Chapter 5 Binar ",
   "main": "app.js",
@@ -21,5 +21,14 @@
     "express-ejs-layouts": "^2.5.1",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.12"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dedenurr/ch6Dede.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dedenurr/ch6Dede/issues"
+  },
+  "homepage": "https://github.com/dedenurr/ch6Dede#readme"
 }
