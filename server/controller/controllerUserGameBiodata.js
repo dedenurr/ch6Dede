@@ -19,7 +19,8 @@ exports.create = (req, res) => {
   userGameBiodata
     .save(userGameBiodata)
     .then((data) => {
-      res.send(data);
+      //res.send(data);
+      res.redirect('/addUser');
     })
     .catch((err) => {
       res.status(500).send({

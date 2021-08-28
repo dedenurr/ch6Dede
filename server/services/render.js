@@ -1,8 +1,17 @@
+const axios = require('axios');
+
 //render setiap halaman yang telah dibuat
 
 exports.dashboardRoutes = (req, res) => {
   //mendapatkan request ke /api/users
-  res.render('./superadmin/dashboard', { userGameBiodata: 'Dede Nurrahman' }); //sumber halaman
+  axios
+    .get('http://localhost:5000/api/users')
+    .then(function (response) {
+      res.render('./superadmin/dashboard', { userGameBiodata: response.data }); //sumber halaman
+    })
+    .catch((err) => {
+      res.send(err);
+    });
 };
 
 exports.addUsersRoutes = (req, res) => {

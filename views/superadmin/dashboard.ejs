@@ -48,17 +48,18 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th colspan="5"></th>
+                            <th colspan="6"></th>
                         </tr>
                     </thead>
                     <thead>
                         <tr align="center">
-                            <th colspan="5">USER DATA</th>
+                            <th colspan="6">USER DATA</th>
 
                         </tr>
                     </thead>
                     <thead>
                         <tr>
+                            <th scope="col">No</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Gender</th>
@@ -67,18 +68,22 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <% for( let i = 0; i < userGameBiodata.length; i++ ) { %>
+
+
                         <tr>
-                            <td>Dede Nurrahman </td>
-                            <td>dedenurrahman@gmail.com</td>
-                            <td>Male</td>
-                            <td>Active</td>
+                            <td><%= i+1 %> </td>
+                            <td><%= userGameBiodata[i].name %> </td>
+                            <td><%= userGameBiodata[i].email %></td>
+                            <td><%= userGameBiodata[i].gender %></td>
+                            <td><%= userGameBiodata[i].status %></td>
                             <td> <a href="/updateUser"><button type="button"
                                         class="btn btn-success">Update</button></a>&nbsp;<button type="button"
                                     class="btn btn-danger">Delete</button></td>
-                        </tr>
+                        </tr> <% } %>
                     </tbody>
                 </table>
-                <%= userGameBiodata %>
+
             </div>
         </div>
     </div>
