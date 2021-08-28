@@ -1,30 +1,44 @@
 //import module
 const express = require('express');
+const dotenv = require('dotenv');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const gameRouter = require('./game-router.js');
+const path = require('path');
+
+const connectDB = require('./server/database/connection');
 
 //module express active
 const app = express();
 
-//initiation port to 8000
-const port = 8000;
+//initiation port to dotenv
+dotenv.config({ path: 'config.env' });
+const PORT = process.env.PORT || 8080;
 
-// use view engine ejs
-app.set('view engine', 'ejs');
+app.use(morgan('tiny'));
+
+connectDB();
 
 // use body parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// use view engine ejs
+app.set('view engine', 'ejs');
+// app.set('views', path.resolve(__dirname, 'views/ejs'));
+
+//load public
+app.use('/assets', express.static(path.resolve(__dirname, 'public/assets')));
+app.use('/css', express.static(path.resolve(__dirname, 'public/css')));
+app.use('/js', express.static(path.resolve(__dirname, 'public/js')));
+
 //built in middleware
 app.use(express.static('public'));
-app.use(morgan('dev'));
+
 app.use(express.json());
 
 //run server
-app.listen(port, (req, res) => {
-  console.log(`Berhasil terhubung ke server ${port}`);
+app.listen(PORT, (req, res) => {
+  console.log(`Berhasil terhubung ke server http://localhost:${PORT}`);
 });
 
 //data user static
@@ -34,14 +48,6 @@ const userData = {
   hobby: 'futsal',
   address: 'Karawang',
 };
-
-// routing endpoint
-app.get('/', (req, res) => {
-  res.render('login');
-});
-
-// page Game ejs
-app.use('/game', gameRouter);
 
 //Internal Server Error Handler
 app.use((err, req, res, next) => {
@@ -57,11 +63,10 @@ app.use((err, req, res, next) => {
   next();
 });
 
-app.get('/main', (req, res) => {
-  res.render('main');
-});
+//Load routers
+app.use('/', require('./server/routes/router'));
 
-app.post('/main', (req, res) => {
+app.post('/dashboard', (req, res) => {
   const loginReq = req.body;
   if (loginReq.username !== userData.username) {
     res.status(400).send({

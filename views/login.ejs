@@ -66,13 +66,13 @@
                 })
             }
 
-            fetch("/main", config)
+            fetch("/dashboard", config)
                 .then(response => response.json())
                 .then(result => {
                     console.log(result)
                     if (result.message === "Login Successful") {
                         alert(result.message)
-                        window.location.href = "/main"
+                        window.location.href = "/dashboard"
                     }
 
                 })
