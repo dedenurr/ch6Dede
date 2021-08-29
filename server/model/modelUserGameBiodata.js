@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-var schema = new mongoose.Schema({
+var schemaBiodata = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -13,6 +13,6 @@ var schema = new mongoose.Schema({
   status: String,
 });
 
-const UserGameBiodata = mongoose.model('user_game_biodata', schema);
+const UserGameBiodata = mongoose.model('user_game_biodata', schemaBiodata);
 
 module.exports = UserGameBiodata;

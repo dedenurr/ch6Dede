@@ -2,7 +2,7 @@ const express = require('express'); //import express
 const route = express.Router(); //inisiasi express route
 
 const services = require('../services/render'); //import dari file render.js  yang berada di folder services
-const controller = require('../controller/controllerUserGameBiodata');
+const controller = require('../controller/controllerUser');
 
 //route page
 route.get('/', services.mainRoutes); // @description "root route", @method GET "/"
@@ -17,5 +17,6 @@ route.post('/api/users', controller.create);
 route.get('/api/users', controller.find);
 route.put('/api/users/:id', controller.update);
 route.delete('/api/users/:id', controller.delete);
+route.get('/api/users/aggregate', controller.aggregate); // @description "update user", @method GET "/updateUser"
 
 module.exports = route; //export "route" yang telah dibuat agar bisa digunakan di file lain (app.js)

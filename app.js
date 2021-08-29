@@ -67,7 +67,7 @@ app.post('/dashboard', (req, res) => {
   const loginReq = req.body;
   if (loginReq.username !== userData.username) {
     res.status(400).send({
-      message: 'Username is not registered',
+      message: 'succes delete data',
     });
   } else if (loginReq.password !== userData.password) {
     res.status(400).send({ message: 'Password is incorrect' });
@@ -82,7 +82,7 @@ app.post('/dashboard', (req, res) => {
 app.use('/', require('./server/routes/router'));
 
 //404 handler
-// app.use((req, res, next) => {
-//   res.status(404).render('./404.ejs');
-//   next();
-// });
+app.use((req, res, next) => {
+  res.status(404).render('./404.ejs');
+  next();
+});
