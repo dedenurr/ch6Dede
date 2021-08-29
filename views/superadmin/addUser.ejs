@@ -30,6 +30,9 @@
                         <a class="navbar-brand" href="#">
                             DASHBOARD
                         </a>
+                        <a class="navbar-brand" href="/">
+                            LOGOUT
+                        </a>
                     </div>
                 </nav>
             </div>
@@ -45,6 +48,7 @@
                                 <div class="row mb-3">
                                     <label for="name" class="col-sm-2 col-form-label">Name</label>
                                     <div class="col-sm-6">
+                                        <input type="hidden" name="id" value="">
                                         <input type="text" name="name" class="form-control" id="name">
                                     </div>
                                 </div>
@@ -74,6 +78,7 @@
 
                                     </div>
                                 </fieldset>
+
                                 <fieldset class="row mb-3">
                                     <legend class="col-form-label col-sm-2 pt-0">Status</legend>
                                     <div class="col-sm-6">
@@ -94,7 +99,47 @@
 
                                     </div>
                                 </fieldset>
-                                <button type="submit" class="btn btn-primary">Save</button>
+
+                                <div class="row mb-3">
+                                    <label for="username" class="col-sm-2 col-form-label">Username</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="username" class="form-control" id="username">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label for="password" class="col-sm-2 col-form-label">Password</label>
+                                    <div class="col-sm-6">
+                                        <input type="password" name="password" class="form-control" id="password">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="gamehistory" class="col-sm-2 col-form-label">Game History</label>
+                                    <div class="col-sm-6">
+                                        <input type="number" name="gamehistory" class="form-control" id="gamehistory">
+                                    </div>
+                                </div>
+
+                                <fieldset class="row mb-3">
+                                    <legend class="col-form-label col-sm-2 pt-0">Status Win</legend>
+                                    <div class="col-sm-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="statuswin" id="radio-6"
+                                                value="Win">
+                                            <label class="form-check-label" for="radio-6">
+                                                Win
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="statuswin" id="radio-7"
+                                                value="Lose">
+                                            <label class="form-check-label" for="radio-7">
+                                                Lose
+                                            </label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <button type="submit" class="btn btn-primary update">Save</button>
                                 </form>
                 </div>
                 <!-- Optional JavaScript; choose one of the two! -->
@@ -108,7 +153,7 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
                     integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
                     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-                <script src="/js/index.js"></script>
+                <script src="js/index.js"></script>
                 <!-- Option 2: Separate Popper and Bootstrap JS -->
                 <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
