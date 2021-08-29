@@ -10,7 +10,7 @@ route.get('/game', services.gameRoutes); // @description "game", @method GET "/g
 route.get('/login', services.loginRoutes); // @description "login", @method GET "/login"
 route.get('/dashboard', services.dashboardRoutes); // @description "dashboard", @method GET "/dashboard"
 route.get('/addUser', services.addUsersRoutes); // @description "add user", @method GET "/addUser"
-route.get('/updateUser', services.updateUsersRoutes); // @description "update user", @method GET "/updateUser"
+route.get('/update-user', services.update_user); // @description "update user", @method GET "/updateUser"
 
 //API
 route.post('/api/users', controller.create);

@@ -18,8 +18,15 @@ exports.addUsersRoutes = (req, res) => {
   res.render('./superadmin/addUser');
 };
 
-exports.updateUsersRoutes = (req, res) => {
-  res.render('./superadmin/updateUser');
+exports.update_user = (req, res) => {
+  axios
+    .get('http://localhost:5000/api/users/', { params: { id: req.query.id } })
+    .then(function (userdata) {
+      res.render('./superadmin/updateUser', { users: userdata.data });
+    })
+    .catch((err) => {
+      res.send(err);
+    });
 };
 
 exports.mainRoutes = (req, res) => {

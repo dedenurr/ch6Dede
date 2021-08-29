@@ -63,9 +63,6 @@ app.use((err, req, res, next) => {
   next();
 });
 
-//Load routers
-app.use('/', require('./server/routes/router'));
-
 app.post('/dashboard', (req, res) => {
   const loginReq = req.body;
   if (loginReq.username !== userData.username) {
@@ -81,8 +78,11 @@ app.post('/dashboard', (req, res) => {
   });
 });
 
+//Load routers
+app.use('/', require('./server/routes/router'));
+
 //404 handler
-app.use((req, res, next) => {
-  res.status(404).render('./404.ejs');
-  next();
-});
+// app.use((req, res, next) => {
+//   res.status(404).render('./404.ejs');
+//   next();
+// });

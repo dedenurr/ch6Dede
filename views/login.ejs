@@ -55,14 +55,17 @@
             let username = document.getElementById("username")
             let password = document.getElementById("password")
 
+            localStorage.setItem("username", username.value)
+            localStorage.setItem("password", password.value)
+
             let config = {
                 method: "post",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    username: username.value,
-                    password: password.value
+                    username: localStorage.getItem("username"),
+                    password: localStorage.getItem("password")
                 })
             }
 
@@ -78,8 +81,9 @@
                 })
                 .catch(err => console.log(err))
 
-            username = ""
-            password = ""
+
+            // username = ""
+            // password = ""
         }
     </script>
 </body>
