@@ -52,7 +52,7 @@ exports.create = async (req, res) => {
     });
 };
 
-//mencari dan menampulkan userGameBiodata
+//mencari dan menampilkan userGameBiodata
 exports.find = (req, res) => {
   if (req.query.id) {
     const id = req.query.id;
